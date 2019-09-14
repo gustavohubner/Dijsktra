@@ -74,7 +74,7 @@ public class Dijsktra {
         if (!erro) {
             str = "Caminho de " + vertices.get(origem).getNome()
                     + " até " + destino.getNome() + ":\n";
-            Stack pilha = new Stack();
+            Stack<Vertice> pilha = new Stack();
             pilha.push(destino);
             int index = vertices.indexOf(destino);
             int pesoTotal = estimativas[index];
@@ -84,7 +84,7 @@ public class Dijsktra {
             } while (index != origem);
 
             while (!pilha.empty()) {
-                Vertice v = (Vertice) pilha.pop();
+                Vertice v = pilha.pop();
                 str += v.getNome();
                 if (!pilha.empty()) {
                     str += "  ->  ";
